@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { HeaderList, HeaderItem } from './SharedLayout.styled';
 
 const StyledLink = styled(NavLink)`
   color: #212121;
@@ -13,16 +13,16 @@ const StyledLink = styled(NavLink)`
 const SharedLayout = () => {
   return (
     <div>
-      <header>
+      <HeaderList>
         <ul>
-          <li>
-            <StyledLink to='/'>Home</StyledLink>
-          </li>
-          <li>
-            <StyledLink to='/movies'>Movies</StyledLink>
-          </li>
+          <HeaderItem>
+            <StyledLink to="/">Home</StyledLink>
+          </HeaderItem>
+          <HeaderItem>
+            <StyledLink to="/movies">Movies</StyledLink>
+          </HeaderItem>
         </ul>
-      </header>
+      </HeaderList>
 
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
